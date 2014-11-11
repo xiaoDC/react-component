@@ -6,7 +6,7 @@
   "authors": [
     "Matt McCray <matt@elucidata.net>"
   ],
-  contributors: [{
+  "contributors": [{
     "name" : "DC3(Dee Cheung)",
     "email" : "dev@dc3.im",
     "url" : "https://github.com/DC3"
