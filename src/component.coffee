@@ -67,4 +67,4 @@ class Component
 
 React.Component = Component
 
-module.exports = Component
+module?.exports = Component
