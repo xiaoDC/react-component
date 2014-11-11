@@ -40,13 +40,9 @@ module.exports= React.Component.toComponent class MyComponent
 
 ## Installation
 
-For browserify:
-
-    npm install elucidata-react-coffee --save
-
 For bower:
 
-    bower install elucidata-react-coffee --save
+    bower install DC3/react-component.coffee#master -S
 
 
 ## Brunch
