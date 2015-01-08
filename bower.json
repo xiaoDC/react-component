@@ -1,8 +1,8 @@
 {
-  "name": "react-component.coffee",
+  "name": "react-component",
   "main": "component.js",
-  "version": "0.7.1",
-  "homepage": "https://github.com/elucidata/react-coffee",
+  "version": "0.7.2",
+  "homepage": "https://github.com/DC3/react-component",
   "authors": [
     "Matt McCray <matt@elucidata.net>"
   ],
@@ -18,7 +18,7 @@
     "coffeescript"
   ],
   "dependencies": {
-    "react": "0.11"
+    "react": "0.12"
   },
   "license": "MIT",
   "ignore": [

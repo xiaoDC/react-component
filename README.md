@@ -1,8 +1,31 @@
-# elucidata-react-coffee
+# react-component
+
+## Installation
+
+For bower:
+
+    bower install DC3/react-component#master -S
+
 
 Define React components using natural CoffeeScript syntax.
 
-Example:
+
+## Example
+
+```coffeescript
+class UserChip extends React.Component
+  @staticMethod: -> # becomes a static method on the React Component
+    "hello"
+
+  mixins: [React.DOM]
+
+  render: ->
+    @div null, "Hello"
+
+module.exports= UserChip.toComponent()
+```
+
+Or:
 
 ```coffeescript
 {div}= React.DOM
@@ -38,112 +61,6 @@ module.exports= React.Component.toComponent class MyComponent
   for ES6 classes). But don't do anything crazy in there. It's must ONLY be
   used for this purpose, as the constructor is discarded in the React component.
 
-## Installation
-
-For bower:
-
-    bower install DC3/react-component.coffee#master -S
-
-
-## Brunch
-
-If you use [brunch](http://brunch.io), you should look into
-the [react-tags-brunch](https://github.com/elucidata/react-tags-brunch)
-plugin, it plays wonderfully with react-coffee! The plugin
-interpolates `(@div ...)` kinds of calls into `React.DOM.div(...)`. 
-
-Example:
-
-```coffeescript
-class Login extends React.Component
-
-  render: ->
-    (@div className:'box',
-      (@header null,
-        "Login"
-      )
-      (@section className:'body',
-        (@form role:'form',
-          # ... etc
-        )
-      )
-      (@footer null,
-        (@button onClick:@whatever, "Login")
-      )
-    )
-
-module.exports= Login.toComponent()
-```
-
-After it has been run through brunch, the output looks like this:
-
-```javascript
-var Login,
-  __hasProp = {}.hasOwnProperty,
-  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-Login = (function(_super) {
-  __extends(Login, _super);
-
-  function Login() {
-    return Login.__super__.constructor.apply(this, arguments);
-  }
-
-  Login.prototype.render = function() {
-    return React.DOM.div({
-      className: 'box'
-    }, React.DOM.header(null, "Login"), React.DOM.section({
-      className: 'body'
-    }, React.DOM.form({
-      role: 'form'
-    })), React.DOM.footer(null, React.DOM.button({
-      onClick: this.whatever
-    }, "Login")));
-  };
-
-  return Login;
-
-})(React.Component);
-
-module.exports = Login.toComponent();
-```
-
-# JSX and ES6
-
-If you are using JSX and enable the `--harmony` flag, you can use react-coffee
-with ES6 classes as well:
-
-```javascript
-class Test extends React.Component {
-
-  static message() {
-    return "Hello, mate."
-  }
-
-  getInitialState() {
-    return {
-      hello: 'Howdy'
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        You said: { this.type.message() }<br/>
-        I said: { this.state.hello }
-      </div>
-    )
-  }
-
-}
-
-module.exports= Test.toComponent()
-```
-
-## Todo
-
-- Examples
-- Tests
 
 # License
 

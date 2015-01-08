@@ -1,16 +1,14 @@
-
 ###
-  elucidata-react-coffee
-  https://github.com/elucidata/react-coffee
-
-  TODO: support react 0.12
+  react-component
+  fork from https://github.com/elucidata/react-coffee
 ###
 
 React = @React or require 'react'
 
 # helpers
 nameParser = /function (.+?)\(/
-keyBlacklist = '__super__ __superConstructor__ constructor keyBlacklist build toComponent'.split ' '
+keyBlacklist = "__super__ __superConstructor__ constructor
+                keyBlacklist build toComponent".split /\s+/
 
 getFnName = (fn) ->
   fn.name or fn.displayName or (fn.toString().match(nameParser) or [null,'UnnamedComponent'])[1]
@@ -46,24 +44,13 @@ extractMethods = (comp, ignore) ->
   methods.statics = extractInto Class:comp, comp, ignore.concat(['mixins', 'propTypes'])
   methods
 
-# @div Tags support
-tag = (name, args...) ->
-  if args[0]?.constructor is Object
-    attributes = args.shift()
-  else
-    attributes = {}
-  React.DOM[name](attributes, args...)
-
 class Component
   @keyBlacklist: keyBlacklist
 
   @toComponent: (componentClass=this, ignore=[]) ->
-    React.createClass extractMethods componentClass, ignore
+    React.createFactory React.createClass extractMethods componentClass, ignore
 
   @build: @toComponent
-
-  for tagName of React.DOM
-    do (tagName) => @::[tagName] = tag.bind(@, tagName)
 
 React.Component = Component
 
