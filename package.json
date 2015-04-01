@@ -1,6 +1,6 @@
 {
   "name": "react-component",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Build React components using natural CoffeeScript syntax.",
   "author": "Matt McCray <matt@elucidata.net>",
   "contributors": [{

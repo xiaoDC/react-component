@@ -1,7 +1,7 @@
 {
   "name": "react-component",
   "main": "component.js",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "homepage": "https://github.com/DC3/react-component",
   "authors": [
     "Matt McCray <matt@elucidata.net>"
@@ -18,7 +18,7 @@
     "coffeescript"
   ],
   "dependencies": {
-    "react": "0.12"
+    "react": "0.13.1"
   },
   "license": "MIT",
   "ignore": [

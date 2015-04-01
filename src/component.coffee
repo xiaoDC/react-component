@@ -8,7 +8,7 @@ React = @React or require 'react'
 # helpers
 nameParser = /function (.+?)\(/
 keyBlacklist = "__super__ __superConstructor__ constructor
-                keyBlacklist build toComponent".split /\s+/
+                keyBlacklist build toComponent bind".split /\s+/
 
 getFnName = (fn) ->
   fn.name or fn.displayName or (fn.toString().match(nameParser) or [null,'UnnamedComponent'])[1]
@@ -26,11 +26,11 @@ handleMixins = extractAndMerge 'mixins', (target, value) ->
   target.concat value
 
 handlePropTypes = extractAndMerge 'propTypes', (target, value) ->
-  target[key] = val for key,val of value
+  target[key] = val for key, val of value
   target
 
 extractInto = (target, source, ignore) ->
-  for key,val of source
+  for key, val of source
     continue if key in keyBlacklist
     continue if key in ignore
     target[key] = val
@@ -52,6 +52,8 @@ class Component
 
   @build: @toComponent
 
+if React.Component
+  React.ReactComponent = React.Component
 React.Component = Component
 
 module?.exports = Component

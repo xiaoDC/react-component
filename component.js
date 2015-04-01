@@ -12,7 +12,7 @@
 
   nameParser = /function (.+?)\(/;
 
-  keyBlacklist = "__super__ __superConstructor__ constructor keyBlacklist build toComponent".split(/\s+/);
+  keyBlacklist = "__super__ __superConstructor__ constructor keyBlacklist build toComponent bind".split(/\s+/);
 
   getFnName = function(fn) {
     return fn.name || fn.displayName || (fn.toString().match(nameParser) || [null, 'UnnamedComponent'])[1];
@@ -92,6 +92,10 @@
     return Component;
 
   })();
+
+  if (React.Component) {
+    React.ReactComponent = React.Component;
+  }
 
   React.Component = Component;
 
